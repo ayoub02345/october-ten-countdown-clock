@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, AlertTriangle } from 'lucide-react';
+import AdSense from './AdSense';
 
 interface TimeLeft {
   days: number;
@@ -72,6 +73,15 @@ const CountdownTimer = () => {
         </div>
       </div>
 
+      {/* Top Ad - Banner */}
+      <div className="w-full max-w-4xl">
+        <AdSense 
+          adSlot="1234567890" 
+          adFormat="horizontal"
+          className="text-center mb-4"
+        />
+      </div>
+
       {/* Status Badge */}
       <Badge 
         variant={isExpired ? "destructive" : "default"}
@@ -103,6 +113,15 @@ const CountdownTimer = () => {
         ))}
       </div>
 
+      {/* Middle Ad - Rectangle */}
+      <div className="w-full max-w-md">
+        <AdSense 
+          adSlot="2345678901" 
+          adFormat="rectangle"
+          className="text-center my-4"
+        />
+      </div>
+
       {/* Target Date Display */}
       <Card className="w-full max-w-md bg-gray-50 border-gray-200">
         <CardContent className="p-6 text-center">
@@ -129,6 +148,15 @@ const CountdownTimer = () => {
           or technical support for Windows 10. Consider upgrading to Windows 11 or exploring 
           alternative operating systems to ensure your device remains secure.
         </p>
+      </div>
+
+      {/* Bottom Ad - Banner */}
+      <div className="w-full max-w-4xl">
+        <AdSense 
+          adSlot="3456789012" 
+          adFormat="horizontal"
+          className="text-center mt-4"
+        />
       </div>
     </div>
   );
