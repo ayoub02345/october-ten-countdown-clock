@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -19,7 +18,7 @@ const CountdownTimer = () => {
     seconds: 0,
   });
 
-  const targetDate = new Date('2024-10-10T00:00:00').getTime();
+  const targetDate = new Date('2025-10-14T00:00:00').getTime();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -67,7 +66,7 @@ const CountdownTimer = () => {
             Support Ends Countdown
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Microsoft will end support for Windows 10 on October 10, 2024. 
+            Microsoft will end support for Windows 10 on October 14, 2025. 
             Time remaining until the end of support:
           </p>
         </div>
@@ -111,7 +110,7 @@ const CountdownTimer = () => {
             End of Support Date
           </h3>
           <div className="text-2xl font-bold text-red-600">
-            October 10, 2024
+            October 14, 2025
           </div>
           <p className="text-sm text-gray-600 mt-2">
             12:00 AM UTC
@@ -126,7 +125,7 @@ const CountdownTimer = () => {
           <h3 className="text-lg font-semibold">Important Information</h3>
         </div>
         <p className="text-amber-800 text-sm leading-relaxed">
-          After October 10, 2024, Microsoft will no longer provide security updates, bug fixes, 
+          After October 14, 2025, Microsoft will no longer provide security updates, bug fixes, 
           or technical support for Windows 10. Consider upgrading to Windows 11 or exploring 
           alternative operating systems to ensure your device remains secure.
         </p>
