@@ -23,7 +23,7 @@ const translations = {
     'supportDescription': 'ستنهي مايكروسوفت دعم ويندوز 10 في 14 أكتوبر 2025. الوقت المتبقي حتى انتهاء الدعم:',
     'supportHasEnded': 'انتهى الدعم',
     'supportStillActive': 'الدعم لا يزال نشطاً',
-    'days': 'أيام',
+    'days': 'يوماً',
     'hours': 'ساعات',
     'minutes': 'دقائق',
     'seconds': 'ثوان',
