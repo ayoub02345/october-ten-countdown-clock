@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, AlertTriangle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import AdSense from './AdSense';
 
 interface TimeLeft {
@@ -12,6 +14,7 @@ interface TimeLeft {
 }
 
 const CountdownTimer = () => {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
     hours: 0,
@@ -42,10 +45,10 @@ const CountdownTimer = () => {
   }, [targetDate]);
 
   const timeUnits = [
-    { label: 'Days', value: timeLeft.days },
-    { label: 'Hours', value: timeLeft.hours },
-    { label: 'Minutes', value: timeLeft.minutes },
-    { label: 'Seconds', value: timeLeft.seconds },
+    { label: t('days'), value: timeLeft.days },
+    { label: t('hours'), value: timeLeft.hours },
+    { label: t('minutes'), value: timeLeft.minutes },
+    { label: t('seconds'), value: timeLeft.seconds },
   ];
 
   const isExpired = timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0;
@@ -54,21 +57,20 @@ const CountdownTimer = () => {
     <div className="flex flex-col items-center space-y-8">
       {/* Header Section */}
       <div className="text-center space-y-4">
-        <div className="flex items-center justify-center space-x-3">
+        <div className="flex items-center justify-center space-x-3 rtl:space-x-reverse">
           <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
             <Clock className="w-6 h-6 text-white" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-            Windows 10
+            {t('windows10')}
           </h1>
         </div>
         <div className="space-y-2">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">
-            Support Ends Countdown
+            {t('supportEndsCountdown')}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Microsoft will end support for Windows 10 on October 14, 2025. 
-            Time remaining until the end of support:
+            {t('supportDescription')}
           </p>
         </div>
       </div>
@@ -88,12 +90,12 @@ const CountdownTimer = () => {
         className="px-4 py-2 text-sm font-medium"
       >
         {isExpired ? (
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 rtl:space-x-reverse">
             <AlertTriangle className="w-4 h-4" />
-            <span>Support Has Ended</span>
+            <span>{t('supportHasEnded')}</span>
           </div>
         ) : (
-          "Support Still Active"
+          t('supportStillActive')
         )}
       </Badge>
 
@@ -126,27 +128,25 @@ const CountdownTimer = () => {
       <Card className="w-full max-w-md bg-gray-50 border-gray-200">
         <CardContent className="p-6 text-center">
           <h3 className="text-lg font-semibold text-gray-800 mb-2">
-            End of Support Date
+            {t('endOfSupportDate')}
           </h3>
           <div className="text-2xl font-bold text-red-600">
-            October 14, 2025
+            {t('october14')}
           </div>
           <p className="text-sm text-gray-600 mt-2">
-            12:00 AM UTC
+            {t('utcTime')}
           </p>
         </CardContent>
       </Card>
 
       {/* Information Section */}
       <div className="max-w-3xl mx-auto text-center space-y-4 bg-amber-50 border border-amber-200 rounded-lg p-6">
-        <div className="flex items-center justify-center space-x-2 text-amber-700">
+        <div className="flex items-center justify-center space-x-2 rtl:space-x-reverse text-amber-700">
           <AlertTriangle className="w-5 h-5" />
-          <h3 className="text-lg font-semibold">Important Information</h3>
+          <h3 className="text-lg font-semibold">{t('importantInformation')}</h3>
         </div>
         <p className="text-amber-800 text-sm leading-relaxed">
-          After October 14, 2025, Microsoft will no longer provide security updates, bug fixes, 
-          or technical support for Windows 10. Consider upgrading to Windows 11 or exploring 
-          alternative operating systems to ensure your device remains secure.
+          {t('warningText')}
         </p>
       </div>
 
