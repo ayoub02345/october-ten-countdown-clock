@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export type Language = 'ar' | 'en';
@@ -31,7 +32,8 @@ const translations = {
     'utcTime': '12:00 ص بالتوقيت العالمي',
     'importantInformation': 'معلومات مهمة',
     'warningText': 'بعد 14 أكتوبر 2025، لن تقوم مايكروسوفت بتوفير تحديثات الأمان أو إصلاحات الأخطاء أو الدعم التقني لويندوز 10. فكر في الترقية إلى ويندوز 11 أو استكشاف أنظمة التشغيل البديلة لضمان بقاء جهازك آمناً.',
-    'footerText': 'هذا العد التنازلي يتتبع النهاية الرسمية لدعم ويندوز 10 كما أعلنت مايكروسوفت'
+    'footerText': 'هذا العد التنازلي يتتبع النهاية الرسمية لدعم ويندوز 10 كما أعلنت مايكروسوفت',
+    'madeWithLove': 'صُنع بحب بواسطة'
   },
   en: {
     'windows10': 'Windows 10',
@@ -48,7 +50,8 @@ const translations = {
     'utcTime': '12:00 AM UTC',
     'importantInformation': 'Important Information',
     'warningText': 'After October 14, 2025, Microsoft will no longer provide security updates, bug fixes, or technical support for Windows 10. Consider upgrading to Windows 11 or exploring alternative operating systems to ensure your device remains secure.',
-    'footerText': 'This countdown tracks the official end of Windows 10 support as announced by Microsoft'
+    'footerText': 'This countdown tracks the official end of Windows 10 support as announced by Microsoft',
+    'madeWithLove': 'Made with ❤️ by'
   }
 };
 

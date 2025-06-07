@@ -25,10 +25,21 @@ const Index = () => {
       </div>
       
       {/* Footer */}
-      <footer className="relative z-10 text-center py-8 text-gray-500 text-sm">
+      <footer className="relative z-10 text-center py-8 text-gray-500 text-sm space-y-2">
         <p>
           {t('footerText')}
         </p>
+        <div className="flex items-center justify-center space-x-2 rtl:space-x-reverse">
+          <span>{t('madeWithLove')}</span>
+          <a 
+            href="https://x.com/ayoub17111" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+          >
+            Ayoub
+          </a>
+        </div>
       </footer>
     </div>
   );
