@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface AdSenseProps {
   adSlot: string;
@@ -16,20 +16,33 @@ const AdSense: React.FC<AdSenseProps> = ({
   style,
   className = ''
 }) => {
+  const adRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
+    // Security: Validate adSlot format (should be numeric)
+    if (!/^\d+$/.test(adSlot)) {
+      console.warn('Invalid AdSense slot format:', adSlot);
+      return;
+    }
+
     try {
-      // Push the ad to AdSense
-      if (window.adsbygoogle) {
-        (window.adsbygoogle as any[]).push({});
+      // Push the ad to AdSense with error handling
+      if (window.adsbygoogle && adRef.current) {
+        // Check if the ad has already been initialized
+        const existingAd = adRef.current.getAttribute('data-adsbygoogle-status');
+        if (!existingAd) {
+          (window.adsbygoogle as any[]).push({});
+        }
       }
     } catch (error) {
-      console.error('AdSense error:', error);
+      console.error('AdSense initialization error:', error);
     }
-  }, []);
+  }, [adSlot]);
 
   return (
     <div className={`adsense-container ${className}`} style={style}>
       <ins
+        ref={adRef}
         className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client="ca-pub-6528013296323055"
