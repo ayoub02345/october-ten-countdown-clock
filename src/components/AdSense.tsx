@@ -16,7 +16,7 @@ const AdSense: React.FC<AdSenseProps> = ({
   style,
   className = ''
 }) => {
-  const adRef = useRef<HTMLElement>(null);
+  const adRef = useRef<HTMLModElement>(null);
 
   useEffect(() => {
     // Security: Validate adSlot format (should be numeric)
