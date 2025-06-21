@@ -56,11 +56,15 @@ const translations = {
 };
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('ar'); // Arabic by default
+  const [language, setLanguage] = useState<Language>('en'); // Default to English for better compatibility
 
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations['ar']] || key;
+    console.log('Translation lookup:', key, 'Language:', language);
+    const translation = translations[language][key as keyof typeof translations['en']];
+    return translation || key;
   };
+
+  console.log('LanguageProvider rendering with language:', language);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
