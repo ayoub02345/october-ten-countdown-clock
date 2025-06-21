@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Clock, AlertTriangle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AdSense from './AdSense';
+import EmailNotification from './EmailNotification';
 
 interface TimeLeft {
   days: number;
@@ -114,6 +114,9 @@ const CountdownTimer = () => {
           </Card>
         ))}
       </div>
+
+      {/* Email Notification Signup */}
+      <EmailNotification />
 
       {/* Middle Ad - Rectangle */}
       <div className="w-full max-w-md">
